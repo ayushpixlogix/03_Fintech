@@ -1581,6 +1581,7 @@ table thead:first-child tr:first-child td {
   justify-content: center;
   background: var(--primary);
   color: var(--white);
+  font-family: var(--font-primary);
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
