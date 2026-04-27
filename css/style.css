@@ -1514,9 +1514,8 @@ table thead:first-child tr:first-child td {
 /* Hero Section */
 .hero-section {
   background-color: var(--bgcolor);
-  background-image: url("../images/bgi/Hero-noise-BG.png");
+  background-image: url("../images/bgi/BG.png");
   background-repeat: no-repeat;
-  background-position: -4px -4px;
   background-size: cover;
   position: relative;
   overflow: hidden;
