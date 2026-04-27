@@ -55,8 +55,21 @@
     gap: clamp(16px, 2vw, 30px);
   }
 
+  .features-strip-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: clamp(28px, 3vw, 56px);
+  }
+
+  .feature-item:not(:last-child)::after {
+    right: calc(clamp(28px, 3vw, 56px) / -2);
+    top: 0;
+    bottom: 0;
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
   .section-integrated .wrap {
-    gap: 3rem;
+    gap: 9rem;
   }
 
   .integrated-image-col {
@@ -146,16 +159,8 @@
     bottom: 1.5rem;
   }
 
-  .feature-item {
-    padding-right: 28px;
-  }
-
-  .feature-item:not(:first-child) {
-    padding-left: 28px;
-  }
-
   .section-integrated .wrap {
-    gap: 2.5rem;
+    gap: 6.5rem;
   }
 
   .integrated-image-col {
@@ -411,18 +416,8 @@
     padding: 60px 0;
   }
 
-  .features-strip-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-  }
-
-  .feature-item {
-    padding-right: 20px;
-    padding-left: 0;
-  }
-
-  .feature-item:not(:first-child) {
-    padding-left: 20px;
+  .feature-item:not(:last-child)::after {
+    right: -12px;
   }
 
   .feature-item p {
@@ -719,7 +714,7 @@
   }
 
   .header-actions .button {
-    display: none; /* hide CTA button keep signin */
+    display: none;
   }
 
   .header-signin {
@@ -925,7 +920,7 @@
 
   .feature-item {
     text-align: center;
-    padding: 30px 0 !important;
+    padding: 25px 0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -1188,7 +1183,7 @@
   }
 
   #footer .contact-row:first-child img {
-    margin-top:0;
+    margin-top: 0;
   }
 }
 /* ============================================================
