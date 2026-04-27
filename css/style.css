@@ -445,8 +445,7 @@ p.drop-caps.secundary:first-child:first-letter {
   float: none !important;
 }
 
-/* =Header
-========================================================================================*/
+/* Header */
 #header {
   background: var(--bgcolor);
   min-height: var(--headerHeight);
@@ -560,8 +559,7 @@ p.drop-caps.secundary:first-child:first-letter {
   width: 100%;
 }
 
-/* =Footer
-========================================================================================*/
+/* Footer */
 #footer.site-footer {
   background: var(--quaternary);
   color: var(--dark);
@@ -657,8 +655,7 @@ p.drop-caps.secundary:first-child:first-letter {
   font-family: var(--font-secondary);
 }
 
-/* =Default Banner
-========================================================================================*/
+/* Default Banner */
 .default-banner {
   background-color: var(--bgcolor);
   background-image: url("../images/bgi/bHero-noise-BG.png");
@@ -1131,7 +1128,7 @@ input[type="radio"] {
   vertical-align: top;
 }
 
-/* .button — anchor-based */
+/* button — anchor-based */
 .button {
   background-color: var(--primary);
   font-family: var(--font-primary);
@@ -1514,8 +1511,7 @@ table thead:first-child tr:first-child td {
   padding: 0;
 }
 
-/* =Hero Section
-========================================================================================*/
+/* Hero Section */
 .hero-section {
   background-color: var(--bgcolor);
   background-image: url("../images/bgi/Hero-noise-BG.png");
@@ -1554,6 +1550,26 @@ table thead:first-child tr:first-child td {
   right: -41%;
   transform: translateX(-50%);
 }
+.hero-arrow-mark {
+  position: absolute;
+  left: -1.5%;
+  top: 69%;
+  width: 15%;
+  z-index: 3;
+}
+.hero-arrow-mark img,
+.hero-vector-mark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero-vector-mark {
+  position: absolute;
+  right: 11%;
+  top: 62%;
+  width: 6.5%;
+  z-index: 4;
+}
 .hero-person-image {
   position: relative;
   z-index: 2;
@@ -1571,6 +1587,14 @@ table thead:first-child tr:first-child td {
   z-index: 3;
   padding-top: 120px;
   padding-bottom: 60px;
+}
+
+.hero-content.ani-element,
+.hero-content.ani-element.show,
+.hero-content.ani-element.up,
+.hero-content.ani-element.up.show {
+  opacity: 1;
+  transform: none;
 }
 
 .hero-content h1 {
@@ -1598,7 +1622,7 @@ table thead:first-child tr:first-child td {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.556;
-  padding: 16px 35px;
+  padding: 16px 33px;
   border-radius: 15px;
   margin-bottom: 52px;
   transition:
@@ -1659,8 +1683,7 @@ table thead:first-child tr:first-child td {
   transform: translateY(-4px) scale(1.02);
 }
 
-/* =Features Strip
-========================================================================================*/
+/* Features Strip */
 .features-strip {
   background: var(--dark);
   padding: 90px 0;
@@ -1742,8 +1765,7 @@ table thead:first-child tr:first-child td {
   max-width: 345.73px;
 }
 
-/* =Integrated Section
-========================================================================================*/
+/* Integrated Section */
 .section-integrated {
   background: var(--quaternary);
   padding: clamp(4.25rem, 8vw, 5.77rem) 0;
@@ -1800,8 +1822,7 @@ table thead:first-child tr:first-child td {
   max-width: 431px;
 }
 
-/* =Backbone Section
-========================================================================================*/
+/* Backbone Section */
 .section-backbone {
   background: var(--white);
   padding: 100px 0;
@@ -1934,8 +1955,7 @@ table thead:first-child tr:first-child td {
   transform: scale(1.05);
 }
 
-/* =Facts Section
-========================================================================================*/
+/* Facts Section */
 .section-facts {
   background: var(--secondary);
   padding: 100px 0;
@@ -1987,8 +2007,7 @@ table thead:first-child tr:first-child td {
   margin: 0;
 }
 
-/* =CTA Section
-========================================================================================*/
+/* CTA Section */
 .section-cta {
   background: var(--white);
   padding: clamp(5rem, 8vw, 6.3rem) 0;
