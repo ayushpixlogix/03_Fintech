@@ -231,50 +231,55 @@
     }
 
     // Simple counter animation for fact-num and hero-fact-num
-    const animateCounter = (element) => {
-      if (element.hasAttribute("data-counter-animated")) return;
-      element.setAttribute("data-counter-animated", "true");
+    const animateCounter = (el) => {
+  if (el.hasAttribute("data-counter-animated")) return;
+  el.setAttribute("data-counter-animated", "true");
 
-      const text = element.textContent.trim();
-      const num = parseInt(text.match(/\d+/)[0]);
-      const duration = 1500;
-      const steps = 50;
-      const stepValue = num / steps;
-      let current = 0;
-      let step = 0;
+  const text = el.textContent.trim();
+  const match = text.match(/([0-9]+(?:\.[0-9]+)?)/);
+  if (!match) return;
 
-      const interval = setInterval(() => {
-        step++;
-        current = Math.floor(stepValue * step);
-        const suffix = text.replace(/\d+/g, "");
-        element.textContent = current + suffix;
+  const num    = parseFloat(match[1]);
+  const prefix = text.slice(0, match.index);
+  const suffix = text.slice(match.index + match[1].length);
 
-        if (step === steps) {
-          element.textContent = text;
-          clearInterval(interval);
-        }
-      }, duration / steps);
-    };
+  const isMillions = suffix.includes("M");
+  const isPercent  = suffix.includes("%");
 
-    // Observe fact-num elements
-    if ($(".fact-num").length || $(".hero-fact-num").length) {
-      const counterElements = document.querySelectorAll(
-        ".fact-num, .hero-fact-num",
-      );
-      const counterObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCounter(entry.target);
-              counterObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px -100px 0px" },
-      );
+  const duration  = isMillions ? 1500 : 1200;
+  const steps     = isMillions ? Math.max(1, Math.round(num / 0.1)) : isPercent ? 40 : 50;
+  const stepValue = num / steps;
+  let i = 0;
 
-      counterElements.forEach((el) => counterObserver.observe(el));
+  const interval = setInterval(() => {
+    i++;
+    const current = isMillions
+      ? Math.min(i * 0.1, num).toFixed(1)
+      : Math.floor(stepValue * i);
+
+    el.textContent = prefix + current + suffix;
+
+    if (i >= steps) {
+      el.textContent = text; // restore original text exactly
+      clearInterval(interval);
     }
+  }, Math.max(10, Math.floor(duration / steps)));
+};
+
+// Observe both sections
+const counterEls = document.querySelectorAll(".fact-num, .hero-fact-num");
+if (counterEls.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -100px 0px" });
+
+  counterEls.forEach((el) => observer.observe(el));
+}
 
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
   });

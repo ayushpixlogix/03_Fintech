@@ -65,24 +65,17 @@
     max-width: 650px;
   }
 
-  .section-backbone .wrap {
-    gap: clamp(3rem, 5vw, 6rem);
-  }
-
   .backbone-text-col {
     margin-left: 60px;
   }
 
-  .section-cta .wrap {
-    gap: 130px;
-  }
 
   .cta-text-col {
-    flex: 0 0 30%;
+    grid-column: 1 / 2;
   }
 
   .cta-features-col {
-    flex: 0 0 57%;
+    grid-column: 2 / 3;
     gap: 24px;
   }
 
@@ -167,13 +160,12 @@
 
   .backbone-text-col {
     margin-left: 0;
-    flex: 0 0 42%;
+    grid-column: 1 / 2;
     max-width: none;
   }
 
   .backbone-cards-col {
-    flex: 0 0 48%;
-    max-width: 48%;
+    grid-column: 2 / 3;
     min-height: 420px;
   }
 
@@ -230,11 +222,11 @@
     max-width: 100%;
   }
   .cta-text-col {
-    flex: 0 0 30%;
+    grid-column: 1 / 2;
   }
 
   .cta-features-col {
-    flex: 0 0 50%;
+    grid-column: 2 / 3;
     gap: 16px;
   }
   .cta-feature-card {
@@ -464,13 +456,14 @@
   }
 
   .section-backbone .wrap {
-    flex-direction: row;
-    gap: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 36px;
     align-items: center;
   }
 
   .backbone-text-col {
-    flex: 0 0 38%;
+    grid-column: 1 / 2;
     width: auto;
     margin-left: 0;
     order: 1;
@@ -490,10 +483,10 @@
   }
 
   .backbone-cards-col {
+    grid-column: 2 / 3;
     width: auto;
     min-height: 340px;
     order: 2;
-    flex: 0 0 50%;
     display: flex;
     justify-content: center;
   }

@@ -1822,18 +1822,18 @@ table thead:first-child tr:first-child td {
   padding: 100px 0;
 }
 .section-backbone .wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 158px;
+  display: grid;
+  grid-template-columns: minmax(260px, 42%) 1fr;
+  align-items: start;
+  column-gap: 158px;
   max-width: 1114.09px;
   padding-left: 0;
   padding-right: 0;
 }
 .backbone-text-col {
-  flex: 0 0 42.01%;
-  max-width: 42.01%;
   margin-left: 0;
   padding-top: 45px;
+  grid-column: 1 / 2;
 }
 .backbone-text-col h2 {
   margin: 0 0 21px;
@@ -1891,11 +1891,10 @@ table thead:first-child tr:first-child td {
   font-weight: 500;
 }
 .backbone-cards-col {
-  flex: 0 0 43.77%;
-  max-width: 43.77%;
   position: relative;
   min-height: 29.99375rem;
   overflow: visible;
+  grid-column: 2 / 3;
 }
 .backbone-cards-col::before {
   content: "";
@@ -2014,12 +2013,13 @@ table thead:first-child tr:first-child td {
   padding: clamp(5rem, 8vw, 6.3rem) 0;
 }
 .section-cta .wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 150px;
+  display: grid;
+  grid-template-columns: minmax(220px, 33%) 1fr;
+  align-items: start;
+  column-gap: 150px;
 }
 .cta-text-col {
-  flex: 0 0 29.94%;
+  grid-column: 1 / 2;
 }
 .cta-text-col h2 {
   color: var(--primary400);
