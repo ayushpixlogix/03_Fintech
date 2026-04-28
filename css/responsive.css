@@ -159,6 +159,7 @@
   .section-backbone .wrap {
     padding-left: var(--wrapspace);
     padding-right: var(--wrapspace);
+    column-gap: 100px;
   }
 
   .backbone-text-col {
