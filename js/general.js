@@ -230,6 +230,52 @@
       });
     }
 
+    // Simple counter animation for fact-num and hero-fact-num
+    const animateCounter = (element) => {
+      if (element.hasAttribute("data-counter-animated")) return;
+      element.setAttribute("data-counter-animated", "true");
+
+      const text = element.textContent.trim();
+      const num = parseInt(text.match(/\d+/)[0]);
+      const duration = 1500;
+      const steps = 50;
+      const stepValue = num / steps;
+      let current = 0;
+      let step = 0;
+
+      const interval = setInterval(() => {
+        step++;
+        current = Math.floor(stepValue * step);
+        const suffix = text.replace(/\d+/g, "");
+        element.textContent = current + suffix;
+
+        if (step === steps) {
+          element.textContent = text;
+          clearInterval(interval);
+        }
+      }, duration / steps);
+    };
+
+    // Observe fact-num elements
+    if ($(".fact-num").length || $(".hero-fact-num").length) {
+      const counterElements = document.querySelectorAll(
+        ".fact-num, .hero-fact-num",
+      );
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -100px 0px" },
+      );
+
+      counterElements.forEach((el) => counterObserver.observe(el));
+    }
+
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
   });
 

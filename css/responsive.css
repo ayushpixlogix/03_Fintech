@@ -8,16 +8,8 @@
     max-height: min(72vh, 55.7rem);
   }
 
-  .hero-arrow-mark {
-    left: -3%;
-    top: 65%;
-    width: 15%;
-  }
-
-  .hero-vector-mark {
-    right: 7.5%;
-    top: 58%;
-    width: 6.5%;
+  .hero-side-image::after {
+    background-position: left 5.5% top 73%, right 14% top 58%;
   }
 
   .hero-card {
@@ -62,11 +54,11 @@
   }
 
   .section-integrated .wrap {
-    gap: 9rem;
+    column-gap: 100px;
   }
 
   .integrated-image-col {
-    flex: 0 0 min(48%, 540px);
+    grid-column: span 7;
   }
 
   .integrated-image-col figure img {
@@ -119,7 +111,7 @@
 
   .hero-section,
   .hero-section .wrap {
-    min-height: 770px;
+    min-height: 730px;
   }
 
   .hero-content {
@@ -133,24 +125,15 @@
     width: min(44vw, 31rem);
   }
 
-  .hero-side-circle {
-    width: 27rem;
+  .hero-side-image::before {
+    width: clamp(18rem, 38vw, 27rem);
     bottom: 18%;
     right: 9%;
     transform: none;
   }
 
-  .hero-arrow-mark {
-    left: -5%;
-    top: 43%;
-    width: 15%;
-    transform: rotate(-10deg);
-  }
-
-  .hero-vector-mark {
-    right: 12.5%;
-    top: 33%;
-    width: 6%;
+  .hero-side-image::after {
+    background-position: left 1.5% top 49%, right 20.5% top 35%;
   }
 
   .hero-person-image {
@@ -166,11 +149,11 @@
   }
 
   .section-integrated .wrap {
-    gap: 6.5rem;
+    column-gap: 95px;
   }
 
   .integrated-image-col {
-    flex: 0 0 min(46%, 500px);
+    grid-column: span 6;
   }
 
   .integrated-image-col figure img {
@@ -345,8 +328,9 @@
   }
 
   .hero-section .wrap {
-    min-height: clamp(500px, 50vh, 600px);
-    padding-top: 145px;
+    min-height: clamp(400px, 48.5vh, 600px);
+    padding-top: 150px;
+    padding-bottom: 30px;
     display: block;
     position: relative;
   }
@@ -355,7 +339,7 @@
     max-width: 60%;
     position: relative;
     z-index: 3;
-    padding-top: 35px;
+    padding-top: 10px;
     padding-bottom: 80px;
   }
 
@@ -398,31 +382,23 @@
     z-index: 1;
   }
 
-  .hero-side-circle {
-    width: clamp(18rem, 34vw, 48rem);
-    right: 5%;
-    bottom: 13%;
-  }
-
-  .hero-arrow-mark {
-    left: -7%;
-    top: 47%;
-    width: 15%;
-  }
-
-  .hero-vector-mark {
+  .hero-side-image::before {
+    width: clamp(18rem, 26vw, 48rem);
     right: 9%;
-    top: 33%;
-    width: 6%;
+    bottom: 10%;
+  }
+
+  .hero-side-image::after {
+    background-position: left 3% top 51%, right 20% top 36%;
   }
 
   .hero-person-image {
-    max-height: 470px;
+    max-height: 420px;
   }
 
   .hero-card {
     position: absolute;
-    right: clamp(62px, 10vw, 86px);
+    right: clamp(62px, 11vw, 110px);
     left: auto;
     bottom: 26px;
     top: auto;
@@ -448,14 +424,12 @@
   }
 
   .section-integrated .wrap {
-    flex-direction: row;
-    gap: 34px;
+    column-gap: 30px;
     align-items: center;
   }
 
   .integrated-image-col {
-    width: auto;
-    flex: 0 0 52%;
+    grid-column: span 6;
     display: flex;
     justify-content: center;
   }
@@ -472,7 +446,8 @@
   }
 
   .integrated-text-col {
-    width: auto;
+    grid-column: span 6;
+    width: 90%;
     text-align: left;
   }
 
@@ -858,28 +833,20 @@
   }
 
   .hero-person-image {
-    width: 100%;
+    width: 80%;
     max-height: none;
     height: auto;
     left: 0;
     bottom: 0;
   }
 
-  .hero-side-circle {
-    width: min(100%, 440px);
-    bottom: 15%;
+  .hero-side-image::before {
+    width: min(85%, 400px);
   }
 
-  .hero-arrow-mark {
-    left: -5%;
-    top: 47%;
-    width: 13%;
-  }
-
-  .hero-vector-mark {
-    right: 8%;
-    top: 34%;
-    width: 5%;
+  .hero-side-image::after {
+    background-position: left 5% top 51%, right 20% top 36%;
+    background-size: 13% auto, 5% auto;
   }
 
   .hero-card {
@@ -997,8 +964,8 @@
   .section-integrated .wrap,
   .section-backbone .wrap,
   .section-cta .wrap {
+    display: flex;
     flex-direction: column;
-    gap: 26px;
     align-items: center;
   }
 
@@ -1294,16 +1261,9 @@
     max-width: 100%;
   }
 
-  .hero-arrow-mark {
-    left: -5%;
-    top: 47%;
-    width: 13%;
-  }
-
-  .hero-vector-mark {
-    right: 7%;
-    top: 35%;
-    width: 6%;
+  .hero-side-image::after {
+    background-position: left 5% top 51%, right 20% top 36%;
+    background-size: 13% auto, 6% auto;
   }
 
   .integrated-image-col figure {

@@ -447,7 +447,7 @@ p.drop-caps.secundary:first-child:first-letter {
 
 /* Header */
 #header {
-  background: var(--bgcolor);
+  background: transparent;
   min-height: var(--headerHeight);
   padding: 0;
   position: fixed;
@@ -479,7 +479,6 @@ p.drop-caps.secundary:first-child:first-letter {
   transition: opacity 250ms ease;
 }
 #logo img {
-  width: 80px;
   max-width: 80px;
   height: auto;
   display: block;
@@ -563,7 +562,7 @@ p.drop-caps.secundary:first-child:first-letter {
 #footer.site-footer {
   background: var(--quaternary);
   color: var(--dark);
-  padding: 100px 0 40px;
+  padding: 100px 0 45px;
   font-size: 16px;
 }
 #footer .footer-top {
@@ -658,10 +657,6 @@ p.drop-caps.secundary:first-child:first-letter {
 /* Default Banner */
 .default-banner {
   background-color: var(--bgcolor);
-  background-image: url("../images/bgi/bHero-noise-BG.png");
-  background-repeat: no-repeat;
-  background-position: -4px -4px;
-  background-size: cover;
   color: var(--primary400);
   text-align: center;
   position: relative;
@@ -1538,9 +1533,12 @@ table thead:first-child tr:first-child td {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  isolation: isolate;
 }
-.hero-side-circle {
+.hero-side-image::before {
+  content: "";
   position: absolute;
+  z-index: 0;
   width: 33rem;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -1549,25 +1547,21 @@ table thead:first-child tr:first-child td {
   right: -41%;
   transform: translateX(-50%);
 }
-.hero-arrow-mark {
+.hero-side-image::after {
+  content: "";
   position: absolute;
-  left: -1.5%;
-  top: 69%;
-  width: 15%;
-  z-index: 3;
-}
-.hero-arrow-mark img,
-.hero-vector-mark img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.hero-vector-mark {
-  position: absolute;
-  right: 11%;
-  top: 62%;
-  width: 6.5%;
-  z-index: 4;
+  inset: -12% -8% -12% -8%;
+  z-index: 1;
+  background-image:
+    url("../images/bgi/Arrow_L.png"), url("../images/bgi/Vector4.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    left 7% top 76%,
+    right 15.5% top 62%;
+  background-size:
+    15% auto,
+    6.5% auto;
+  pointer-events: none;
 }
 .hero-person-image {
   position: relative;
@@ -1689,10 +1683,10 @@ table thead:first-child tr:first-child td {
 }
 .features-strip-grid {
   display: grid;
-  grid-template-columns: 368.72px 353.73px 345.73px;
-  column-gap: 113.91px;
+  grid-template-columns: repeat(3, minmax(13.75rem, 1fr));
+  column-gap: clamp(1.5rem, 6vw, 7rem);
   position: relative;
-  min-height: 214px;
+  min-height: clamp(10rem, 22vh, 13.375rem);
 }
 .feature-item {
   padding: 0;
@@ -1701,9 +1695,9 @@ table thead:first-child tr:first-child td {
 .feature-item:not(:last-child)::after {
   content: "";
   position: absolute;
-  right: -56.955px;
-  top: 3px;
-  height: 211px;
+  right: calc(var(--wrapspace) * -1.9);
+  top: 0.2rem;
+  height: clamp(8rem, 20vh, 13rem);
   width: 1px;
   background: rgba(255, 255, 255, 0.15);
 }
@@ -1770,22 +1764,23 @@ table thead:first-child tr:first-child td {
   padding: clamp(4.25rem, 8vw, 5.77rem) 0;
 }
 .section-integrated .wrap {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: flex-start;
-  max-width: calc(1168.48px + (var(--wrapspace) * 2));
-  gap: 170px;
+  justify-content: start;
+  max-width: calc(1200px + (var(--wrapspace) * 2));
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 74px;
+  row-gap: 0;
 }
 .integrated-image-col {
-  flex: 0 0 47.47%;
-  max-width: 47.47%;
+  grid-column: span 7;
+  max-width: 100%;
 }
 .integrated-image-col figure {
   margin: 0;
   overflow: visible;
 }
 .integrated-image-col figure img {
-  max-width: 110%;
   height: auto;
   transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center center;
@@ -1794,7 +1789,7 @@ table thead:first-child tr:first-child td {
   transform: scale(1.05);
 }
 .integrated-text-col {
-  flex: 0 0 40.74%;
+  grid-column: span 5;
 }
 .integrated-text-col h2 {
   color: var(--primary400);
@@ -1899,35 +1894,30 @@ table thead:first-child tr:first-child td {
   flex: 0 0 43.77%;
   max-width: 43.77%;
   position: relative;
-  min-height: 479.9px;
+  min-height: 29.99375rem;
   overflow: visible;
 }
 .backbone-cards-col::before {
   content: "";
   position: absolute;
-  width: 450px;
-  height: 450px;
+  width: 28.125rem;
+  height: 28.125rem;
   border-radius: 50%;
   background: var(--secondary);
-
-  top: 19px;
-  left: 53%;
-  transform: translateX(-50%);
+  top: 1.1875rem;
+  left: calc((100% - 28.125rem) / 2 - 0.016875rem);
   z-index: 0;
 }
 .backbone-cards-col::after {
   content: "";
   position: absolute;
-  width: 479.9px;
-  height: 479.9px;
+  width: 29.99375rem;
+  height: 29.99375rem;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
-
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  filter: blur(114.99px);
+  left: calc((100% - 29.99375rem) / 2 + 0.241875rem);
+  filter: blur(7.186875rem);
   z-index: 0;
 }
 
@@ -1943,7 +1933,7 @@ table thead:first-child tr:first-child td {
 .backbone-cards-col figure img {
   width: 100%;
   max-width: 100%;
-  max-height: 479.9px;
+  max-height: 29.99375rem;
   height: auto;
   display: block;
   object-fit: contain;
@@ -1986,7 +1976,7 @@ table thead:first-child tr:first-child td {
   right: calc(var(--facts-line-space) * -1);
   top: 50%;
   width: 1px;
-  height: 71px;
+  height: 52.25%;
   background: rgba(18, 20, 29, 0.1);
   transform: translateY(-50%);
 }
@@ -1996,6 +1986,18 @@ table thead:first-child tr:first-child td {
   line-height: 1.25;
   color: var(--dark);
   margin: 0 0 20px;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.hero-fact-num {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--dark);
+  margin: 0 0 8px;
+  display: inline-block;
+  min-width: 80px;
 }
 .fact-desc {
   font-size: var(--h5);
