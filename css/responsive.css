@@ -9,7 +9,9 @@
   }
 
   .hero-side-image::after {
-    background-position: left 5.5% top 73%, right 14% top 58%;
+    background-position:
+      left 5.5% top 73%,
+      right 14% top 58%;
   }
 
   .hero-card {
@@ -69,7 +71,6 @@
     margin-left: 60px;
   }
 
-
   .cta-text-col {
     grid-column: 1 / 2;
   }
@@ -104,7 +105,7 @@
 
   .hero-section,
   .hero-section .wrap {
-    min-height: 730px;
+    min-height: 750px;
   }
 
   .hero-content {
@@ -126,7 +127,9 @@
   }
 
   .hero-side-image::after {
-    background-position: left 1.5% top 49%, right 20.5% top 35%;
+    background-position:
+      left 1.5% top 49%,
+      right 20.5% top 35%;
   }
 
   .hero-person-image {
@@ -381,7 +384,9 @@
   }
 
   .hero-side-image::after {
-    background-position: left 3% top 51%, right 20% top 36%;
+    background-position:
+      left 3% top 51%,
+      right 20% top 36%;
   }
 
   .hero-person-image {
@@ -552,12 +557,12 @@
   }
 
   .section-cta .wrap {
-    flex-direction: row;
-    gap: 36px;
+    column-gap: 36px;
+    grid-template-columns: 1fr 1fr;
   }
 
   .cta-text-col {
-    flex: 0 0 35%;
+    grid-column: 1 / 2;
     width: auto;
     max-width: none;
     text-align: left;
@@ -592,8 +597,8 @@
   }
 
   .cta-features-col {
+    grid-column: 2 / 3;
     width: auto;
-    flex: 1;
     gap: 18px;
     justify-content: flex-start;
   }
@@ -838,8 +843,12 @@
   }
 
   .hero-side-image::after {
-    background-position: left 5% top 51%, right 20% top 36%;
-    background-size: 13% auto, 5% auto;
+    background-position:
+      left 5% top 51%,
+      right 20% top 36%;
+    background-size:
+      13% auto,
+      5% auto;
   }
 
   .hero-card {
@@ -1109,6 +1118,7 @@
   .cta-features-col {
     flex-direction: column;
     gap: 14px;
+    margin-top: 24px;
   }
 
   .cta-feature-card {
@@ -1255,8 +1265,12 @@
   }
 
   .hero-side-image::after {
-    background-position: left 5% top 51%, right 20% top 36%;
-    background-size: 13% auto, 6% auto;
+    background-position:
+      left 5% top 51%,
+      right 20% top 36%;
+    background-size:
+      13% auto,
+      6% auto;
   }
 
   .integrated-image-col figure {

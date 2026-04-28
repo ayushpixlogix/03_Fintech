@@ -2064,7 +2064,7 @@ table thead:first-child tr:first-child td {
 
 .cta-features-col {
   display: flex;
-  flex: 0 0 54.5%;
+  grid-column: 2 / 3;
   gap: 24px;
 }
 .cta-feature-card {
